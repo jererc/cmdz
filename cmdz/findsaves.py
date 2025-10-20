@@ -5,8 +5,14 @@ import os
 from pathlib import Path
 import time
 
-EXCLUDE_PATH_PARTS = {'__pycache__', '.cache', '.git', 'cache', 'htmlcache', 'logs', 'temp', 'D3DSCache', 'NVIDIA'}
-EXCLUDE_PATH_SUBSTRINGS = {'\\Microsoft\\Windows\\', '\\Microsoft\\Edge\\', '\\Packages\\MicrosoftWindows.', '\\Packages\\Microsoft.'}
+EXCLUDE_PATH_PARTS = {
+    '__pycache__', '.cache', '.git', 'cache', 'htmlcache', 'logs', 'temp',
+    'D3DSCache', 'NVIDIA', 'NVIDIA Corporation',
+}
+EXCLUDE_PATH_SUBSTRINGS = {
+    '\\Microsoft\\Windows\\', '\\Microsoft\\Edge\\', '\\Microsoft\\IdentityCache\\',
+    '\\Packages\\MicrosoftWindows.', '\\Packages\\Microsoft.',
+}
 
 
 def parse_args():
