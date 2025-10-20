@@ -5,7 +5,8 @@ import os
 from pathlib import Path
 import time
 
-EXCLUDE_PATH_PARTS = {'__pycache__', '.cache', 'cache', 'logs', 'temp', 'htmlcache', 'D3DSCache', 'Edge', 'NVIDIA'}
+EXCLUDE_PATH_PARTS = {'__pycache__', '.cache', '.git', 'cache', 'htmlcache', 'logs', 'temp', 'D3DSCache', 'NVIDIA'}
+EXCLUDE_PATH_SUBSTRINGS = {'\\Microsoft\\Edge\\', '\\Microsoft.XboxGamingOverlay'}
 
 
 def parse_args():
@@ -39,7 +40,9 @@ def main():
             continue
         parent = os.path.dirname(file)
         parts = set(Path(file).parts)
-        if any(part in EXCLUDE_PATH_PARTS for part in parts):
+        if any(p in EXCLUDE_PATH_PARTS for p in parts):
+            continue
+        if any(s in parent for s in EXCLUDE_PATH_SUBSTRINGS):
             continue
         by_parent[parent].append(mtime)
     agg = {k: max(v) for k, v in by_parent.items()}
