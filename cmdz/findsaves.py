@@ -6,12 +6,14 @@ from pathlib import Path
 import time
 
 EXCLUDE_PATH_PARTS = {
-    '__pycache__', '.cache', '.git', 'cache', 'htmlcache', 'logs', 'temp',
-    'D3DSCache', 'NVIDIA', 'NVIDIA Corporation',
+    '__pycache__', '.cache', '.git',
+    'cache', 'logs', 'temp',
+    'htmlcache', 'D3DSCache', 'NVIDIA', 'NVIDIA Corporation',
 }
 EXCLUDE_PATH_SUBSTRINGS = {
-    '\\Microsoft\\Windows\\', '\\Microsoft\\Edge\\', '\\Microsoft\\IdentityCache\\',
-    '\\Packages\\MicrosoftWindows.', '\\Packages\\Microsoft.',
+    '\\Local\\Packages\\',
+    # '\\Microsoft\\Windows\\', '\\Microsoft\\Edge\\', '\\Microsoft\\IdentityCache\\',
+    # '\\Packages\\MicrosoftWindows.', '\\Packages\\Microsoft.',
 }
 
 
