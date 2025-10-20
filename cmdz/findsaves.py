@@ -6,7 +6,7 @@ from pathlib import Path
 import time
 
 EXCLUDE_PATH_PARTS = {'__pycache__', '.cache', '.git', 'cache', 'htmlcache', 'logs', 'temp', 'D3DSCache', 'NVIDIA'}
-EXCLUDE_PATH_SUBSTRINGS = {'\\Microsoft\\Edge\\', '\\Microsoft.XboxGamingOverlay'}
+EXCLUDE_PATH_SUBSTRINGS = {'\\Microsoft\\Edge\\', '\\Microsoft.XboxGamingOverlay', '\\MicrosoftWindows.Client.'}
 
 
 def parse_args():
