@@ -12,7 +12,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root-dir', '-r', type=str, default=os.path.dirname(os.path.expanduser('~')),
                         help='root directory')
-    parser.add_argument('--mtime-delta', '-m', type=int, default=24 * 3600,
+    parser.add_argument('--mtime-delta', '-m', type=int, default=3600,
                         help='mtime delta in seconds')
     return parser.parse_args()
 
