@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 import time
 
-EXCLUDE_PATH_PARTS = {'__pycache__', '.cache', 'cache', 'logs', 'temp'}
+EXCLUDE_PATH_PARTS = {'__pycache__', '.cache', 'cache', 'logs', 'temp', 'htmlcache', 'D3DSCache'}
 
 
 def parse_args():
