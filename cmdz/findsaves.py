@@ -5,24 +5,17 @@ import os
 from pathlib import Path
 import time
 
-EXCLUDE_PATH_PARTS = {
-    '__pycache__', '.cache', '.git',
-    'cache', 'logs', 'temp',
-    # 'htmlcache',
-    # 'D3DSCache',
-    # 'NVIDIA', 'NVIDIA Corporation',
-}
+EXCLUDE_PATH_PARTS = {'__pycache__', '.cache', '.git', 'cache', 'logs', 'temp'}
 EXCLUDE_PATH_SUBSTRINGS = {
-    '\\Local\\Packages\\',
-    '\\Local\\Microsoft\\',
-    '\\Local\\D3DSCache\\',
     '\\Local\\ASUS\\',
+    '\\Local\\D3DSCache\\',
     '\\Local\\Intel\\',
-    '\\Local\\NVIDIA Corporation\\',
+    '\\Local\\Microsoft\\',
     '\\Local\\NVIDIA\\',
+    '\\Local\\NVIDIA Corporation\\',
+    '\\Local\\Packages\\',
     '\\Local\\Steam\\',
-    # '\\Microsoft\\Windows\\', '\\Microsoft\\Edge\\', '\\Microsoft\\IdentityCache\\',
-    # '\\Packages\\MicrosoftWindows.', '\\Packages\\Microsoft.',
+    '\\Roaming\\Microsoft\\',
 }
 
 
