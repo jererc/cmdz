@@ -15,8 +15,12 @@ EXCLUDE_PATH_PARTS = {
 EXCLUDE_PATH_SUBSTRINGS = {
     '\\Local\\Packages\\',
     '\\Local\\Microsoft\\',
+    '\\Local\\D3DSCache\\',
     '\\Local\\ASUS\\',
     '\\Local\\Intel\\',
+    '\\Local\\NVIDIA Corporation\\',
+    '\\Local\\NVIDIA\\',
+    '\\Local\\Steam\\',
     # '\\Microsoft\\Windows\\', '\\Microsoft\\Edge\\', '\\Microsoft\\IdentityCache\\',
     # '\\Packages\\MicrosoftWindows.', '\\Packages\\Microsoft.',
 }
