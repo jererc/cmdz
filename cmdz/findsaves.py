@@ -8,10 +8,15 @@ import time
 EXCLUDE_PATH_PARTS = {
     '__pycache__', '.cache', '.git',
     'cache', 'logs', 'temp',
-    'htmlcache', 'D3DSCache', 'NVIDIA', 'NVIDIA Corporation',
+    # 'htmlcache',
+    # 'D3DSCache',
+    # 'NVIDIA', 'NVIDIA Corporation',
 }
 EXCLUDE_PATH_SUBSTRINGS = {
     '\\Local\\Packages\\',
+    '\\Local\\Microsoft\\',
+    '\\Local\\ASUS\\',
+    '\\Local\\Intel\\',
     # '\\Microsoft\\Windows\\', '\\Microsoft\\Edge\\', '\\Microsoft\\IdentityCache\\',
     # '\\Packages\\MicrosoftWindows.', '\\Packages\\Microsoft.',
 }
