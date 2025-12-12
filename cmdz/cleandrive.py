@@ -7,6 +7,7 @@ import sys
 import time
 
 TMP_FILE = '/tmp/tmpfile'
+SHUTDOWN_DELAY = 5
 
 
 def get_args():
@@ -82,14 +83,13 @@ def main():
     run_command('sudo apt -y clean', 'cleaning apt cache', shell=True)
     run_command('sudo apt -y autoclean', 'cleaning apt cache', shell=True)
     run_command('sudo apt -y autoremove', 'cleaning apt cache', shell=True)
-    run_command('sudo rm -rf /var/lib/snapd/cache/*', 'cleaning snap cache', shell=True)
     run_command('sudo docker system prune -a --volumes -f', 'cleaning docker system', shell=True)
     with MegasyncManager().not_running():
         optimize_free_space()
     get_drive_usage()
     if args.shutdown:
-        print('shutting down...')
-        time.sleep(5)
+        print(f'shutting down in {SHUTDOWN_DELAY} seconds...')
+        time.sleep(SHUTDOWN_DELAY)
         run_command('sudo shutdown -h now', 'shutting down', shell=True)
 
 
