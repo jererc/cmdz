@@ -10,6 +10,8 @@ Bootstrapper(
         'cmdz @ https://github.com/jererc/cmdz/archive/refs/heads/main.zip',
     ],
     force_reinstall=True,
-).setup_venv()
-Bootstrapper(name='cmdz').setup_script_shortcut('sleep', args=['cmdz.sleep'])
-Bootstrapper(name='cmdz').setup_script_shortcut('shutdown', args=['cmdz.shutdown'])
+    shortcuts=[
+        {'name': 'sleep', 'args': ['cmdz.sleep'], 'headless': False},
+        {'name': 'shutdown', 'args': ['cmdz.shutdown'], 'headless': False},
+    ],
+)
