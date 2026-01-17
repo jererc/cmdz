@@ -11,3 +11,5 @@ Bootstrapper(
     ],
     force_reinstall=True,
 ).setup_venv()
+Bootstrapper(name='cmdz').setup_script_shortcut('sleep')
+Bootstrapper(name='cmdz').setup_script_shortcut('shutdown')
