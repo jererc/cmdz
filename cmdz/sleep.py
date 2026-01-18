@@ -16,8 +16,14 @@ def run(cmd):
 
 
 def main():
-    Virtualbox(headless=False).stop_all_vms(save=True)
-    run('rundll32.exe powrprof.dll,SetSuspendState 0,1,0')
+    try:
+        Virtualbox(headless=False).stop_all_vms(save=True)
+    except FileNotFoundError as e:
+        logger.debug(str(e))
+    if sys.platform == 'win32':
+        run('rundll32.exe powrprof.dll,SetSuspendState 0,1,0')
+    else:
+        run('systemctl suspend')
 
 
 if __name__ == '__main__':

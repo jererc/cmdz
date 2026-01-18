@@ -16,10 +16,16 @@ def run(cmd):
 
 
 def main():
-    Virtualbox(headless=False).stop_all_vms(save=True)
-    for proc in ['VBoxSVC', 'VirtualBox', 'VBoxHeadless', 'VirtualBoxVM']:
-        run(f'taskkill /IM {proc}.exe /F >nul 2>nul')
-    run('shutdown /s /t 0')
+    try:
+        Virtualbox(headless=False).stop_all_vms(save=True)
+    except FileNotFoundError as e:
+        logger.debug(str(e))
+    if sys.platform == 'win32':
+        for proc in ['VBoxSVC', 'VirtualBox', 'VBoxHeadless', 'VirtualBoxVM']:
+            run(f'taskkill /IM {proc}.exe /F >nul 2>nul')
+        run('shutdown /s /t 0')
+    else:
+        run('systemctl poweroff')
 
 
 if __name__ == '__main__':
