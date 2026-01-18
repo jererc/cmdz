@@ -15,14 +15,21 @@ def run(cmd):
         logger.exception(f'failed to run {cmd=}')
 
 
+def taskkill(proc):
+    cmd = f'taskkill /IM {proc} /F >nul 2>nul'
+    result = subprocess.run(cmd, check=False, stdout=sys.stdout, shell=True)
+    if result.returncode not in [0, 128]:
+        logger.error(f'failed to run {cmd=}: {result.returncode}')
+
+
 def main():
     try:
         Virtualbox(headless=False).stop_all_vms(save=True)
     except FileNotFoundError as e:
         logger.debug(str(e))
     if sys.platform == 'win32':
-        for proc in ['VBoxSVC', 'VirtualBox', 'VBoxHeadless', 'VirtualBoxVM']:
-            run(f'taskkill /IM {proc}.exe /F >nul 2>nul')
+        for proc in ['VBoxSVC.exe', 'VirtualBox.exe', 'VBoxHeadless.exe', 'VirtualBoxVM.exe']:
+            taskkill(proc)
         run('shutdown /s /t 0')
     else:
         run('systemctl poweroff')
