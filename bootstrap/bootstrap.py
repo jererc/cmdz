@@ -11,7 +11,7 @@ Bootstrapper(
     ],
     force_reinstall=True,
     shortcuts=[
-        {'name': 'sleep', 'args': ['cmdz.sleep'], 'headless': False},
-        {'name': 'shutdown', 'args': ['cmdz.shutdown'], 'headless': False},
+        {'name': 'sleep', 'args': ['cmdz.suspend'], 'headless': False},
+        {'name': 'poweroff', 'args': ['cmdz.suspend', '--poweroff'], 'headless': False},
     ],
 )

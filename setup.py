@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='cmdz',
-    version='2026.01.18.071902',
+    version='2026.01.20.070603',
     author='jererc',
     author_email='jererc@gmail.com',
     url='https://github.com/jererc/cmdz',
