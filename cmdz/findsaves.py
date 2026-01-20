@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import time
 
+DEFAULT_ROOT_DIR = os.path.dirname(os.path.expanduser('~'))
 EXCLUDE_PATH_PARTS = {'__pycache__', '.cache', '.git', 'cache', 'logs', 'temp', 'Temp'}
 EXCLUDE_PATH_SUBSTRINGS = {
     '\\Local\\ASUS\\',
@@ -22,10 +23,8 @@ EXCLUDE_PATH_SUBSTRINGS = {
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--root-dir', '-r', type=str, default=os.path.dirname(os.path.expanduser('~')),
-                        help='root directory')
-    parser.add_argument('--mtime-delta', '-m', type=int, default=3600,
-                        help='mtime delta in seconds')
+    parser.add_argument('--root-dir', '-r', type=str, default=DEFAULT_ROOT_DIR, help='root directory')
+    parser.add_argument('--mtime-delta', '-m', type=int, default=3600, help='mtime delta in seconds')
     return parser.parse_args()
 
 
@@ -33,10 +32,6 @@ def walk_files(path):
     for root, dirs, files in os.walk(path):
         for file in files:
             yield os.path.join(root, file)
-
-
-def get_path_parts_pathlib(path):
-    return list(Path(path).parts)
 
 
 def main():
