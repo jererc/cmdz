@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='cmdz',
-    version='2026.01.20.070603',
+    version='2026.01.20.144357',
     author='jererc',
     author_email='jererc@gmail.com',
     url='https://github.com/jererc/cmdz',
@@ -21,8 +21,7 @@ setup(
             'cleanfiles=cmdz.cleanfiles:main',
             'findsaves=cmdz.findsaves:main',
             'gitcp=cmdz.gitcp:main',
-            'sleep=cmdz.sleep:main',
-            'shutdown=cmdz.shutdown:main',
+            'suspend=cmdz.suspend:main',
         ],
     },
     include_package_data=True,
