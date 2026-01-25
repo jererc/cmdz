@@ -73,6 +73,9 @@ class MegasyncManager:
 
 
 def main():
+    if sys.platform != 'linux':
+        print(f'Error: {sys.platform} is not supported')
+        return
     if os.path.exists(TMP_FILE):
         os.remove(TMP_FILE)
     args = get_args()
