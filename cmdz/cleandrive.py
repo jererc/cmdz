@@ -87,6 +87,7 @@ def main():
     run_command('sudo apt -y autoclean', 'cleaning apt cache', shell=True)
     run_command('sudo apt -y autoremove', 'cleaning apt cache', shell=True)
     run_command('sudo docker system prune -a --volumes -f', 'cleaning docker system', shell=True)
+    run_command('sudo ls -t ~/Applications/Cursor-*.AppImage | tail -n +2 | xargs rm', 'cleaning cursor appimages', shell=True)
     with MegasyncManager().not_running():
         optimize_free_space()
     get_drive_usage()
