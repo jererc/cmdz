@@ -13,6 +13,6 @@ Bootstrapper(
     shortcuts=[
         {'name': 'sleep', 'args': ['cmdz.pause'], 'headless': False},
         {'name': 'poweroff-save-vms', 'args': ['cmdz.pause', '--poweroff'], 'headless': False},
-        {'name': 'poweroff', 'args': ['cmdz.pause', '--poweroff', '--poweroff-vms'], 'headless': False},
+        {'name': 'poweroff-stop-vms', 'args': ['cmdz.pause', '--poweroff', '--stop-vms'], 'headless': False},
     ],
 )

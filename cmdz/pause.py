@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--poweroff', action='store_true')
-    parser.add_argument('--poweroff-vms', action='store_true')
+    parser.add_argument('--stop-vms', action='store_true')
     return parser.parse_args()
 
 
@@ -49,7 +49,7 @@ def poweroff():
 def main():
     args = parse_args()
     try:
-        Virtualbox(headless=False).stop_all_vms(save=not args.poweroff_vms)
+        Virtualbox(headless=False).stop_all_vms(save=not args.stop_vms)
     except FileNotFoundError as e:
         logger.debug(str(e))
     poweroff() if args.poweroff else sleep()
