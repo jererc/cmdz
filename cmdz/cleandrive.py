@@ -87,6 +87,11 @@ def main():
     run_command('sudo apt -y autoclean', 'cleaning apt cache', shell=True)
     run_command('sudo apt -y autoremove', 'cleaning apt cache', shell=True)
     run_command('sudo docker system prune -a --volumes -f', 'cleaning docker system', shell=True)
+    run_command('sudo rm -rf /var/lib/snapd/cache/*', 'cleaning snapd cache', shell=True)
+    run_command('sudo rm -rf rm -rf ~/.cache/pip', 'cleaning pip cache', shell=True)
+    run_command('sudo rm -rf rm -rf ~/.cache/uv', 'cleaning uv cache', shell=True)
+    run_command('sudo rm -rf rm -rf ~/.cache/BraveSoftware', 'cleaning brave cache', shell=True)
+    run_command("find ~/work/ -type f -regex '.*/dist/[^/]*\.tar\(\.gz\)?$' -delete", 'cleaning dist files', shell=True)
     run_command('sudo ls -t ~/Applications/Cursor-*.AppImage | tail -n +2 | xargs rm', 'cleaning cursor appimages', shell=True)
     with MegasyncManager().not_running():
         optimize_free_space()
