@@ -92,7 +92,7 @@ def main():
     run_command('sudo rm -rf rm -rf ~/.cache/uv', 'cleaning uv cache', shell=True)
     run_command('sudo rm -rf rm -rf ~/.cache/BraveSoftware', 'cleaning brave cache', shell=True)
     run_command('npm cache clean --force', 'cleaning npm cache', shell=True)
-    run_command('rm -rf ~/.vscode-server/cli/servers/*', 'cleaning vscode servers', shell=True)
+    run_command('rm -rf ~/.vscode-server', 'cleaning vscode servers', shell=True)
     run_command("find ~/work/ -type f -regex '.*/dist/[^/]*\.tar\(\.gz\)?$' -delete", 'cleaning work dist files', shell=True)
     with MegasyncManager().not_running():
         optimize_free_space()
