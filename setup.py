@@ -17,11 +17,11 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'cleandrive=cmdz.cleandrive:main',
             'cleanfilenames=cmdz.cleanfilenames:main',
             'findsaves=cmdz.findsaves:main',
             'gitcp=cmdz.gitcp:main',
             'pause=cmdz.pause:main',
+            'purgevm=cmdz.purgevm:main',
         ],
     },
     include_package_data=True,
