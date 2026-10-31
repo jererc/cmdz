@@ -19,7 +19,6 @@ setup(
         'console_scripts': [
             'cleanfilenames=cmdz.cleanfilenames:main',
             'findsaves=cmdz.findsaves:main',
-            'gitcp=cmdz.gitcp:main',
             'pause=cmdz.pause:main',
             'purgevm=cmdz.purgevm:main',
         ],
