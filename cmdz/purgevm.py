@@ -201,9 +201,11 @@ def main():
         print(f'Error: {sys.platform} is not supported')
         return 1
     args = get_args()
-    if not (args.force or args.dry_run or is_vm()):
-        print('Error: not on a vm, nothing was purged (use --force to override)')
-        return 1
+    if not (args.force or is_vm()):
+        if not args.dry_run:
+            print('Error: not on a vm, nothing was purged (use --force to override)')
+            return 1
+        print('Warning: not on a vm, a real run would be refused (use --force to override)')
     path = os.path.realpath(os.path.expanduser(args.path))
     try:
         config = Config(os.path.join(path, 'user_settings.py'),
