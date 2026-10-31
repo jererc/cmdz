@@ -172,7 +172,8 @@ class Purger:
                 self.run_command(f'rm -f {zero_file}', f'cleaning {zero_file}')
 
     def get_drive_usage(self):
-        self.run_command('sudo du -xah / | sort -hr | head -n 50', 'getting drive usage')
+        self.run_command('sudo du -xah / | sort -hr | head -n 50', 'getting largest paths')
+        self.run_command('df -hT -x tmpfs -x devtmpfs -x squashfs -x overlay', 'getting drive usage')
 
     def shutdown(self):
         print(f'shutting down in {SHUTDOWN_DELAY} seconds...')
@@ -188,9 +189,9 @@ class Purger:
         else:
             with processes_stopped(self.config.STOP_PROCESSES):
                 self.zero_free_space()
-        self.get_drive_usage()
         if self.failures:
             print(f'Failed: {", ".join(self.failures)}')
+        self.get_drive_usage()
         if shutdown:
             self.shutdown()
         return 1 if self.failures else 0
