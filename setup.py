@@ -9,6 +9,8 @@ setup(
     packages=find_packages(exclude=['tests*']),
     python_requires='>=3.10',
     install_requires=[
+        # 'svcutils @ git+https://github.com/jererc/svcutils.git@main#egg=svcutils',
+        'svcutils @ https://github.com/jererc/svcutils/archive/refs/heads/main.zip',
         # 'vbox @ git+https://github.com/jererc/vbox.git@main#egg=vbox',
         'vbox @ https://github.com/jererc/vbox/archive/refs/heads/main.zip',
     ],

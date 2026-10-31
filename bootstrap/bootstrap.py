@@ -15,4 +15,7 @@ Bootstrapper(
         {'name': 'poweroff-save-vms', 'args': ['cmdz.pause', '--poweroff'], 'headless': False},
         {'name': 'poweroff-stop-vms', 'args': ['cmdz.pause', '--poweroff', '--stop-vms'], 'headless': False},
     ],
+    assets=[
+        {'filename': 'user_settings.py', 'url': 'https://raw.githubusercontent.com/jererc/cmdz/refs/heads/main/bootstrap/user_settings.py'},
+    ],
 )
